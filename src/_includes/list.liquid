@@ -1,0 +1,15 @@
+<div class="list">
+  {% if tag %}
+    {% assign collection = collections[tag] %}
+  {% else %}
+    {% assign collection = collections.projects %}
+  {% endif %}
+
+  {%- for item in collection -%}
+    <a href="{{item.url}}">
+      {% projectPreview item.fileSlug %}
+      <img class="animation" data-src="/img/{{item.fileSlug}}/animation.gif">
+      {{item.data.title}}
+    </a>
+  {%- endfor -%}
+</div>

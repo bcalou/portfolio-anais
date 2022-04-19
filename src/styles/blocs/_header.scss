@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 18.75rem;
+}
+
+.menu {
+  display: flex;
+  text-transform: uppercase;
+
+  ul {
+    display: flex;
+
+    &::after {
+      content: '/';
+    }
+  }
+}

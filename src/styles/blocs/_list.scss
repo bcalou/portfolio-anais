@@ -1,0 +1,28 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.75rem, 1fr));
+
+  a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &:focus,
+    &:hover {
+      .animation {
+        display: block;
+      }
+    }
+  }
+
+  img {
+    width: 12.5rem;
+  }
+
+  .animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+  }
+}

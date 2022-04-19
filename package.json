@@ -6,13 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "eleventy --serve",
-    "serve": "eleventy --serve",
-    "build": "eleventy"
+    "serve": "npm run start",
+    "dev": "npm run start",
+    "build": "ELEVENTY_ENV=prod eleventy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-img": "^2.0.0",
+    "eleventy-sass": "^1.1.5"
   }
 }
