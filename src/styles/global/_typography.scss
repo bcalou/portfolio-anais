@@ -1,11 +1,23 @@
 @font-face {
+  font-family: "Garamond";
+  src: url("/assets/fonts/garamond-regular.woff2");
+}
+
+@font-face {
+  font-family: "Garamond";
+  src: url("/assets/fonts/garamond-italic.woff2");
+  font-style: italic;
+}
+
+@font-face {
   font-family: "Europa";
   src: url("/assets/fonts/europa-bold.woff2");
   font-weight: bold;
 }
 
 body {
-  font-family: "Europa";
+  font-family: "Garamond", serif;
+  letter-spacing: .0625rem;
 }
 
 cite, i, em {

@@ -24,9 +24,10 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  text-transform: uppercase;
-  align-items: center;
   gap: 1.25rem;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Europa", sans-serif;
 
   @include medium {
     flex-direction: row;
@@ -59,7 +60,6 @@
     font-weight: bold;
     text-decoration: none;
     color: black;
-    letter-spacing: .0625rem;
     font-size: .75rem;
     display: block;
     border-bottom: 0.125rem solid transparent;

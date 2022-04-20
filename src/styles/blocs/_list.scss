@@ -15,11 +15,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    font-family: "Europa", sans-serif;
     text-decoration: none;
     text-transform: uppercase;
     color: inherit;
     font-size: .75rem;
-    letter-spacing: .0625rem;
 
     &:focus,
     &:hover {
