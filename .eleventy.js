@@ -3,6 +3,7 @@ const Image = require('@11ty/eleventy-img');
 const eleventySass = require("eleventy-sass");
 const path = require("path");
 const fs = require('fs');
+const { join } = require('path');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
@@ -32,6 +33,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addLiquidShortcode('projectImage', projectImage);
   eleventyConfig.addLiquidShortcode('projectPreview', projectPreview);
+  eleventyConfig.addLiquidShortcode('slideshow', slideshow);
 
   return {
     dir: {
@@ -49,9 +51,37 @@ async function projectImage(page, index) {
 }
 
 async function projectPreview(slug) {
-  if (!fs.existsSync(`src/img/${slug}/poster.jpg`)) return;
+  const posterPath = `src/img/${slug}/poster.jpg`;
+  if (!fs.existsSync(posterPath)) return;
 
-  return await getPictureTag(`src/img/${slug}/poster.jpg`, [200, 400]);
+  return await getPictureTag(posterPath, [200, 400]);
+}
+
+async function slideshow(page) {
+  const pictures = [];
+  let index = 1;
+
+  while (fs.existsSync(`src/img/${page.fileSlug}/slideshow-${index}.jpg`)) {
+    pictures.push(`src/img/${page.fileSlug}/slideshow-${index}.jpg`)
+    index++;
+  }
+
+  const pictureElements = await Promise.all(pictures.map(async(picture) =>
+    await getPictureTag(picture, [450, 900, 1800], true)
+  ));
+
+  return `<div class="slideshow">
+    <div class="slideshow__slides">
+      <div class="slideshow__inner">
+        ${pictureElements.join('')}
+      </div>
+    </div>
+    <div class="slideshow__nav">
+      ${pictureElements.map((pictureEl, index) =>
+        `<button data-slide=${index}>${pictureEl}</button>`
+      ).join('')}
+    </div>
+  </div>`
 }
 
 async function getPictureTag(path, sizes, lazy) {

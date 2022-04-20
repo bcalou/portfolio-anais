@@ -1,11 +1,25 @@
 .list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13.75rem, 1fr));
+  grid-template-columns: repeat(auto-fit, 13.75rem);
+  gap: 3.125rem;
+  margin: 0 auto 4rem;
+  padding: 0 3rem;
+  max-width: 87.25rem;
+  justify-content: center;
+
+  @include medium {
+    margin-bottom: 7rem;
+  }
 
   a {
     position: relative;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    font-size: .75rem;
+    letter-spacing: .0625rem;
 
     &:focus,
     &:hover {
@@ -16,7 +30,8 @@
   }
 
   img {
-    width: 12.5rem;
+    width: 13.75rem;
+    margin-bottom: 1rem;
   }
 
   .animation {

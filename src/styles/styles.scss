@@ -1,5 +1,7 @@
 @import 'vendors/_reset.scss';
 
+@import 'config/_medias.scss';
+
 @import 'global/_layout.scss';
 @import 'global/_typography.scss';
 
@@ -7,3 +9,5 @@
 
 @import 'blocs/_header.scss';
 @import 'blocs/_list.scss';
+@import 'blocs/_slideshow.scss';
+

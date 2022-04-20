@@ -1,0 +1,34 @@
+.slideshow__slides {
+  position: relative;
+  overflow: hidden;
+}
+
+.slideshow__inner {
+  position: absolute;
+  transition: transform 0.3s;
+}
+
+.slideshow__nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .25rem;
+
+  button {
+    background: none;
+    border: 1px solid transparent;
+    outline: none;
+    padding: 0.125rem;
+    cursor: pointer;
+    width: 4rem;
+
+    &:hover,
+    &:focus {
+      border-color: grey;
+    }
+  }
+
+  img {
+    display: block;
+  }
+}
