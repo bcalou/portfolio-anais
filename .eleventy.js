@@ -3,7 +3,7 @@ const Image = require('@11ty/eleventy-img');
 const eleventySass = require("eleventy-sass");
 const path = require("path");
 const fs = require('fs');
-const { join } = require('path');
+const criticalCss = require('eleventy-critical-css');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
@@ -31,6 +31,12 @@ module.exports = function (eleventyConfig) {
     }
   });
 
+  if (prod) {
+    eleventyConfig.addPlugin(criticalCss, {
+      assetPaths: ['_site/index.html']
+    });
+  }
+
   eleventyConfig.addLiquidShortcode('projectImage', projectImage);
   eleventyConfig.addLiquidShortcode('projectPreview', projectPreview);
   eleventyConfig.addLiquidShortcode('slideshow', slideshow);
@@ -50,11 +56,11 @@ async function projectImage(page, index) {
   );
 }
 
-async function projectPreview(slug) {
-  const posterPath = `src/img/${slug}/poster.jpg`;
+async function projectPreview(item) {
+  const posterPath = `src/img/${item.fileSlug}/poster.jpg`;
   if (!fs.existsSync(posterPath)) return;
 
-  return await getPictureTag(posterPath, [200, 400]);
+  return await getPictureTag(posterPath, [200, 400], item.data.title);
 }
 
 async function slideshow(page) {
@@ -67,7 +73,7 @@ async function slideshow(page) {
   }
 
   const pictureElements = await Promise.all(pictures.map(async(picture) =>
-    await getPictureTag(picture, [450, 900, 1800], true)
+    await getPictureTag(picture, [450, 900, 1800], "", true)
   ));
 
   return `<div class="slideshow">
@@ -82,7 +88,7 @@ async function slideshow(page) {
   </div>`
 }
 
-async function getPictureTag(path, sizes, lazy) {
+async function getPictureTag(path, sizes, alt, lazy) {
   const images = await Image(path, {
     widths: prod ? sizes : [null],
     formats: prod ? ['avif', 'webp', 'jpeg'] : ['jpeg'],
@@ -96,7 +102,12 @@ async function getPictureTag(path, sizes, lazy) {
 
   return `<picture>
     ${sources}
-    <img src="${url}" ${lazy ? 'loading="lazy"': ''} decoding="async" />
+    <img
+      src="${url}"
+      ${lazy ? 'loading="lazy"': ''}
+      alt=${alt}
+      decoding="async"
+    />
   </picture>`;
 }
 

@@ -7,8 +7,12 @@
 
   {%- for item in collection -%}
     <a href="{{item.url}}">
-      {% projectPreview item.fileSlug %}
-      <img class="animation" data-src="/img/{{item.fileSlug}}/animation.gif">
+      {% projectPreview item %}
+      <img
+        class="animation"
+        data-src="/img/{{item.fileSlug}}/animation.gif"
+        alt=""
+      >
       {{item.data.title}}
     </a>
   {%- endfor -%}
