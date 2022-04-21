@@ -66,7 +66,7 @@ async function projectPreview(item) {
   return await getPictureTag({
     path: posterPath,
     dimensions: [220, 440],
-    alt: item.data.title,
+    alt: "",
     sizes: "13.75rem",
     width: "220",
     height: "220"
