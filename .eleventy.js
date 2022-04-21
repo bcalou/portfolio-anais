@@ -67,7 +67,9 @@ async function projectPreview(item) {
     path: posterPath,
     dimensions: [220, 440],
     alt: item.data.title,
-    sizes: "13.75rem"
+    sizes: "13.75rem",
+    width: "220",
+    height: "220"
   });
 }
 
@@ -118,8 +120,10 @@ async function getPictureTag(options) {
     ${sources}
     <img
       src="${url}"
-      ${options.lazy ? 'loading="lazy" decoding="async"': ''}
       alt=${options.alt}
+      ${options.lazy ? 'loading="lazy" decoding="async"': ''}
+      ${options.width ? `width=${options.width}` : ''}
+      ${options.height ? `height=${options.height}` : ''}
     />
   </picture>`;
 }
