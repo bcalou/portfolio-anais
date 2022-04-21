@@ -31,11 +31,11 @@ module.exports = function (eleventyConfig) {
     }
   });
 
-  if (prod) {
-    eleventyConfig.addPlugin(criticalCss, {
-      assetPaths: ['_site/index.html']
-    });
-  }
+  // if (prod) {
+  //   eleventyConfig.addPlugin(criticalCss, {
+  //     assetPaths: ['_site/index.html']
+  //   });
+  // }
 
   eleventyConfig.addLiquidShortcode('projectImage', projectImage);
   eleventyConfig.addLiquidShortcode('projectPreview', projectPreview);
