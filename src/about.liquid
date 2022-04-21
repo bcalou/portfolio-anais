@@ -2,46 +2,37 @@
 eleventyExcludeFromCollections: true
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/css/styles.css" rel="stylesheet">
-  <script src="/js/script.js" defer></script>
-  <title>About - Anaïs Lemercier</title>
-</head>
-<body class="about">
-  {% include "header" %}
+{% assign pageTitle = "About — Anaïs Lemercier" %}
 
-  <main>
-    <h1>Anaïs Lemercier</h1>
+{% include "header" %}
 
-    <p lang="en">Freelance graphic designer and illustrator</p>
-    <p lang="en">La Rochelle, Paris.</p>
+<main class="about">
+  <h1>Anaïs Lemercier</h1>
 
-    <address>
-      <a href="tel:0682100790">+33 (0)682 10 07 90</a>
-      <a href="mailto:anaislemercier.contact@gmail.com">anaislemercier.contact@gmail.com</p>
-      <a href="/assets/cv_anais_lemercier_2022.pdf">Curriculum vitæ</a>
+  <p lang="en">Freelance graphic designer and illustrator</p>
+  <p lang="en">La Rochelle, Paris.</p>
 
-      <div class="about__social">
-        <a href="https://www.pinterest.fr/alemercier/" title="Page Pinterest">
-          <img src="/assets/pinterest.svg" alt="">
-        </a>
-        <a href="https://www.linkedin.com/in/anais-lemercier-a63199a3/" title="Page LinkedIn">
-          <img src="/assets/linkedin.svg" alt="">
-        </a>
-        <a href="https://www.behance.net/anaislemercier" title="Page Behance">
-          <img src="/assets/behance.svg" alt="">
-        </a>
-      </div>
-    </address>
-  </main>
+  <address>
+    <a href="tel:0682100790">+33 (0)682 10 07 90</a>
+    <a href="mailto:anaislemercier.contact@gmail.com">anaislemercier.contact@gmail.com</p>
+    <a href="/assets/cv_anais_lemercier_2022.pdf">Curriculum vitæ</a>
 
-  <aside>
-    {% include "list" %}
-  </aside>
-</body>
-</html>
+    <div class="about__social">
+      <a href="https://www.pinterest.fr/alemercier/" title="Page Pinterest">
+        <img src="/assets/pinterest.svg" alt="">
+      </a>
+      <a href="https://www.linkedin.com/in/anais-lemercier-a63199a3/" title="Page LinkedIn">
+        <img src="/assets/linkedin.svg" alt="">
+      </a>
+      <a href="https://www.behance.net/anaislemercier" title="Page Behance">
+        <img src="/assets/behance.svg" alt="">
+      </a>
+    </div>
+  </address>
+</main>
+
+<aside>
+  {% include "list" %}
+</aside>
+
+{% include "footer" %}

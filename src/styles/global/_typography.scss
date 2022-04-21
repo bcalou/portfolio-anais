@@ -1,18 +1,21 @@
 @font-face {
   font-family: "Garamond";
   src: url("/assets/fonts/garamond-regular.woff2");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Garamond";
   src: url("/assets/fonts/garamond-italic.woff2");
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Europa";
   src: url("/assets/fonts/europa-bold.woff2");
   font-weight: bold;
+  font-display: swap;
 }
 
 body {
