@@ -7,9 +7,9 @@ permalink: /{{ tag }}/
 eleventyExcludeFromCollections: true
 ---
 
-{% capture pageTitle %}
-  {{ tag | capitalize }} — Anaïs Lemercier
-{% endcapture %}
+{% capture pageTitle %}{{ tag | capitalize }} — Anaïs Lemercier{% endcapture %}
+{% capture pageDescription %}All my projects in the {{tag}} category.{% endcapture %}
+
 {% include "header" %}
 
 <main>
