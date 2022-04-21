@@ -120,7 +120,7 @@ async function getPictureTag(options) {
     ${sources}
     <img
       src="${url}"
-      alt=${options.alt}
+      alt="${options.alt}"
       ${options.lazy ? 'loading="lazy" decoding="async"': ''}
       ${options.width ? `width=${options.width}` : ''}
       ${options.height ? `height=${options.height}` : ''}
