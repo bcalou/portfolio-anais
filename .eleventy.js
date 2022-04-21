@@ -71,10 +71,8 @@ async function slideshow(page) {
   ));
 
   return `<div class="slideshow">
-    <div class="slideshow__slides">
-      <div class="slideshow__inner">
-        ${pictureElements.join('')}
-      </div>
+    <div class="slideshow__container">
+      <div class="slideshow__slides">${pictureElements.join('')}</div>
     </div>
     <div class="slideshow__nav">
       ${pictureElements.map((pictureEl, index) =>

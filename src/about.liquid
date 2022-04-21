@@ -11,29 +11,31 @@ eleventyExcludeFromCollections: true
   <link href="/css/styles.css" rel="stylesheet">
   <title>About - Anaïs Lemercier</title>
 </head>
-<body class="page">
+<body class="about">
   {% include "header" %}
 
   <main>
     <h1>Anaïs Lemercier</h1>
 
-    <p>Graphic designer-Illustrator</p>
-    <p>Based in La Rochelle</p>
+    <p lang="en">Freelance graphic designer and illustrator</p>
+    <p lang="en">La Rochelle, Paris.</p>
 
     <address>
-      <p href="tel:0682100790">+33 (0)682 10 07 90</p>
+      <a href="tel:0682100790">+33 (0)682 10 07 90</a>
       <a href="mailto:anaislemercier.contact@gmail.com">anaislemercier.contact@gmail.com</p>
       <a href="/assets/cv_anais_lemercier_2022.pdf">Curriculum vitæ</a>
 
-      <a href="https://www.pinterest.fr/alemercier/" title="Page Pinterest">
-        Pinterest
-      </a>
-      <a href="https://www.pinterest.fr/alemercier/" title="Page LinkedIn">
-        LinkedIn
-      </a>
-      <a href="https://www.pinterest.fr/alemercier/" title="Page Behance">
-        Behance
-      </a>
+      <div class="about__social">
+        <a href="https://www.pinterest.fr/alemercier/" title="Page Pinterest">
+          <img src="/assets/pinterest.svg" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/anais-lemercier-a63199a3/" title="Page LinkedIn">
+          <img src="/assets/linkedin.svg" alt="">
+        </a>
+        <a href="https://www.behance.net/anaislemercier" title="Page Behance">
+          <img src="/assets/behance.svg" alt="">
+        </a>
+      </div>
     </address>
   </main>
 

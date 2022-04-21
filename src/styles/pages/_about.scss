@@ -1,0 +1,43 @@
+.about {
+  main {
+    max-width: 56.25rem;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+    padding-bottom: 3.5rem;
+    text-align: center;
+    border-bottom: .0625rem solid #e0e0e0;
+  }
+
+  h1 {
+    font-family: "Europa";
+    margin-bottom: 0.25rem;
+  }
+
+  address {
+    margin-top: 1rem;
+
+    & > a {
+      text-decoration: none;
+      color: black;
+      line-height: 1.5;
+      display: block;
+    }
+  }
+}
+
+.about__social {
+  margin-top: 2rem;
+  display: flex;
+  gap: .25rem;
+  justify-content: center;
+
+  a {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+  }
+
+  img {
+    width: 2.5rem;
+  }
+}
