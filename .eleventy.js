@@ -49,18 +49,25 @@ module.exports = function (eleventyConfig) {
 };
 
 async function projectImage(page, index) {
-  return await getPictureTag(
-    `src/img/${page.fileSlug}/${index}.jpg`,
-    [450, 900, 1800],
-    true
-  );
+  return await getPictureTag({
+    path: `src/img/${page.fileSlug}/${index}.jpg`,
+    dimensions: [450, 900, 1800],
+    lazy: index > 1,
+    sizes: "(max-width: 56.25rem) 100vw, 56.25rem",
+    alt: ""
+  });
 }
 
 async function projectPreview(item) {
   const posterPath = `src/img/${item.fileSlug}/poster.jpg`;
   if (!fs.existsSync(posterPath)) return;
 
-  return await getPictureTag(posterPath, [200, 400], item.data.title);
+  return await getPictureTag({
+    path: posterPath,
+    dimensions: [220, 440],
+    alt: item.data.title,
+    sizes: "13.75rem"
+  });
 }
 
 async function slideshow(page) {
@@ -73,7 +80,13 @@ async function slideshow(page) {
   }
 
   const pictureElements = await Promise.all(pictures.map(async(picture) =>
-    await getPictureTag(picture, [450, 900, 1800], "", true)
+    await getPictureTag({
+      path: picture,
+      dimensions: [450, 900, 1800],
+      alt: "",
+      lazy: true,
+      sizes: "(max-width: 56.25rem) 100vw, 56.25rem"
+    })
   ));
 
   return `<div class="slideshow">
@@ -88,31 +101,30 @@ async function slideshow(page) {
   </div>`
 }
 
-async function getPictureTag(path, sizes, alt, lazy) {
-  const images = await Image(path, {
-    widths: prod ? sizes : [null],
+async function getPictureTag(options) {
+  const images = await Image(options.path, {
+    widths: prod ? options.dimensions : [null],
     formats: prod ? ['avif', 'webp', 'jpeg'] : ['jpeg'],
     outputDir: '_site/img',
   });
 
   const url = images.jpeg[0].url;
   const sources = Object.values(images)
-    .map((imageFormat) => getSourceTag(imageFormat, 1800))
+    .map((imageFormat) => getSourceTag(imageFormat, 1800, options.sizes))
     .join('\n');
 
   return `<picture>
     ${sources}
     <img
       src="${url}"
-      ${lazy ? 'loading="lazy"': ''}
-      alt=${alt}
-      decoding="async"
+      ${options.lazy ? 'loading="lazy" decoding="async"': ''}
+      alt=${options.alt}
     />
   </picture>`;
 }
 
 // Generate a <source> tag for the given image format
-function getSourceTag(imageFormat, maxWidth) {
+function getSourceTag(imageFormat, maxWidth, sizes) {
   const srcset = imageFormat
     .filter((format) => format.width <= maxWidth)
     .map((entry) => entry.srcset)
@@ -121,5 +133,6 @@ function getSourceTag(imageFormat, maxWidth) {
   return `<source
     type="${imageFormat[0].sourceType}"
     srcset="${srcset}"
+    ${sizes ? `sizes="${sizes}"` : ''}
   >`;
 }
