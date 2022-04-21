@@ -7,7 +7,7 @@
 
   {%- for item in collection -%}
     <a href="{{item.url}}">
-      {% projectPreview item %}
+      {% projectPreview item homePage %}
       <img
         class="animation"
         data-src="/img/{{item.fileSlug}}/animation.gif"

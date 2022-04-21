@@ -59,7 +59,7 @@ async function projectImage(page, index) {
   });
 }
 
-async function projectPreview(item) {
+async function projectPreview(item, homePage) {
   const posterPath = `src/img/${item.fileSlug}/poster.jpg`;
   if (!fs.existsSync(posterPath)) return;
 
@@ -69,7 +69,8 @@ async function projectPreview(item) {
     alt: "",
     sizes: "13.75rem",
     width: "220",
-    height: "220"
+    height: "220",
+    lazy: !homePage
   });
 }
 
