@@ -1,6 +1,10 @@
 .slideshow {
   margin-top: 3rem;
 
+  picture + & {
+    margin-top: 0.75rem;
+  }
+
   &.js {
     .slideshow__container {
       position: relative;
