@@ -19,6 +19,14 @@
       color: black;
       line-height: 1.5;
       display: block;
+      height: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @include medium {
+        height: auto;
+      }
     }
   }
 }
