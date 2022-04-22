@@ -86,7 +86,6 @@ async function slideshow(page) {
       path: picture,
       dimensions: [450, 900, 1800],
       alt: "",
-      lazy: true,
       sizes: "(max-width: 56.25rem) 100vw, 56.25rem"
     })
   ));
@@ -97,7 +96,10 @@ async function slideshow(page) {
     </div>
     <div class="slideshow__nav">
       ${pictureElements.map((pictureEl, index) =>
-        `<button data-slide=${index}>${pictureEl}</button>`
+        `<button
+          aria-label="Image ${index + 1} sur ${pictureElements.length}"
+          data-slide=${index}
+        >${pictureEl}</button>`
       ).join('')}
     </div>
   </div>`
