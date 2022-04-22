@@ -11,6 +11,10 @@
     margin-bottom: 7rem;
   }
 
+  @media (min-width: 87.25em) {
+    justify-content: start;
+  }
+
   a {
     position: relative;
     display: flex;
