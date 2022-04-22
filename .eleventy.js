@@ -55,7 +55,7 @@ async function projectImage(page, index) {
     dimensions: [450, 900, 1800],
     lazy: index > 1,
     sizes: "(max-width: 56.25rem) 100vw, 56.25rem",
-    alt: ""
+    alt: "",
   });
 }
 
@@ -68,8 +68,6 @@ async function projectPreview(item, homePage) {
     dimensions: [220, 440],
     alt: "",
     sizes: "13.75rem",
-    width: "220",
-    height: "220",
     lazy: !homePage
   });
 }
@@ -123,8 +121,8 @@ async function getPictureTag(options) {
       src="${url}"
       alt="${options.alt}"
       ${options.lazy ? 'loading="lazy" decoding="async"': ''}
-      ${options.width ? `width=${options.width}` : ''}
-      ${options.height ? `height=${options.height}` : ''}
+      width="${images.jpeg.at(0).width}"
+      height="${images.jpeg.at(0).height}"
     />
   </picture>`;
 }
