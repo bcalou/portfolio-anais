@@ -3,12 +3,12 @@
 // ******************* //
 
 document.querySelectorAll('.list a').forEach(project => {
-  project.addEventListener('mouseover', () => loadAnimation(project));
+  project.addEventListener('mouseover', () => startAnimation(project));
   project.addEventListener('mouseleave', () => stopAnimation(project));
-  project.addEventListener('focus', () => loadAnimation(project));
+  project.addEventListener('focus', () => startAnimation(project));
 })
 
-function loadAnimation(project) {
+function startAnimation(project) {
   const gif = project.querySelector('.animation');
 
   if (gif) {
