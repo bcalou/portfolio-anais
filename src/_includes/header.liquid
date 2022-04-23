@@ -56,38 +56,64 @@
     <nav class="header__menu">
       <ul>
         <li>
-          <a href="/">
-            <span>All</span>
+          <a
+            {% if page.fileSlug == "" %}aria-current="page"{% endif %}
+            href="/"
+          >
+            <span>Accueil</span>
           </a>
         </li>
         <li>
-          <a href="/poster/">
-            <span>Poster</span>
+          <a
+            {% if tag == "affiche" %}aria-current="page"{% endif %}
+            class="header__filter"
+            href="/affiche/"
+          >
+            <span>Affiche</span>
           </a>
         </li>
         <li>
-          <a href="/packaging/">
+          <a
+            {% if tag == "packaging" %}aria-current="page"{% endif %}
+            class="header__filter"
+            href="/packaging/"
+          >
             <span>Packaging</span>
           </a>
         </li>
         <li>
-          <a href="/identity/">
-            <span>Identity</span>
+          <a
+            {% if tag == "identite" %}aria-current="page"{% endif %}
+            class="header__filter"
+            href="/identite/"
+          >
+            <span>Identité</span>
           </a>
         </li>
         <li>
-          <a href="/edition/">
-            <span>Edition</span>
+          <a
+            {% if tag == "edition" %}aria-current="page"{% endif %}
+            class="header__filter"
+            href="/edition/"
+          >
+            <span>Édition</span>
           </a>
         </li>
         <li>
-          <a href="/illustration/">
+          <a
+            {% if tag == "illustration" %}aria-current="page"{% endif %}
+            class="header__filter"
+            href="/illustration/"
+          >
             <span>Illustration</span>
           </a>
         </li>
       </ul>
-      <a href="/about/">
-        <span>About</span>
+      <a
+        {% if page.fileSlug == "contact" %}aria-current="page"{% endif %}
+        href="/contact/"
+      >
+        <span>Contact</span>
       </a>
     </nav>
   </header>

@@ -177,7 +177,6 @@ body {
   a {
     color: white;
     font-size: 1.25rem;
-
     font-weight: bold;
     text-decoration: none;
     display: block;
@@ -190,9 +189,24 @@ body {
     }
 
     &:hover,
-    &:focus {
+    &:focus,
+    &[aria-current].header__filter {
       span {
-        border-color: black;
+        border-color: white;
+
+        @include medium {
+          border-color: black;
+        }
+      }
+    }
+
+    &[aria-current] {
+      span {
+        border-color: white;
+
+        @include medium {
+          border-color: transparent;
+        }
       }
     }
   }
