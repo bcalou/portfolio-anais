@@ -1,3 +1,13 @@
+// *********** //
+// Burger menu //
+// *********** //
+
+const header = document.querySelector('header');
+
+header.querySelector('.header__burger').addEventListener('click', () => {
+  header.classList.toggle('header--open');
+});
+
 // ******************* //
 // Hover GIF animation //
 // ******************* //
@@ -9,10 +19,12 @@ document.querySelectorAll('.list a').forEach(project => {
 })
 
 function startAnimation(project) {
-  const gif = project.querySelector('.animation');
+  if (window.matchMedia("(min-width: 39rem)").matches) {
+    const gif = project.querySelector('.animation');
 
-  if (gif) {
-    gif.setAttribute('src', gif.getAttribute('data-src'));
+    if (gif) {
+      gif.setAttribute('src', gif.getAttribute('data-src'));
+    }
   }
 }
 

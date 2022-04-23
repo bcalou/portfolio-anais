@@ -35,17 +35,23 @@
 </head>
 <body>
   <header class="header">
-    {% if page.fileSlug == "" %}<h1>{% endif %}
-      <a href="/">
-        <img
-          class="header__logo"
-          src="/assets/logo.svg"
-          alt="Anaïs Lemercier"
-          width="352"
-          height="71"
-        >
-      </a>
-    {% if page.fileSlug == "" %}</h1>{% endif %}
+    <div class="header__top">
+      {% if page.fileSlug == "" %}<h1>{% endif %}
+        <a href="/">
+          <img
+            class="header__logo"
+            src="/assets/logo.svg"
+            alt="Anaïs Lemercier"
+            width="352"
+            height="71"
+          >
+        </a>
+      {% if page.fileSlug == "" %}</h1>{% endif %}
+
+      <div aria-hidden class="header__burger">
+        <span></span>
+      </div>
+    </div>
 
     <nav class="header__menu">
       <ul>

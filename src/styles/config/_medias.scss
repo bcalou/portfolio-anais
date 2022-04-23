@@ -1,5 +1,5 @@
 @mixin medium {
-  @media (min-width: 39rem) {
+  @media (min-width: 39em) {
     @content;
   }
 }
