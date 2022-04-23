@@ -8,7 +8,7 @@
 
   <!-- Social tags -->
   <meta property="og:title" content="{{pageTitle}}">
-  <meta property="og:image" content="{% if pageImage %}{{pageImage}}{% else %}/assets/meta.jpg{% endif %}">
+  <meta property="og:image" content="{{env.baseUrl}}{% if pageImage %}{{pageImage}}{% else %}/assets/meta.jpg{% endif %}">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Anaïs Lemercier">
   <meta name="twitter:card" content="summary_large_image">

@@ -16,6 +16,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
     "@11ty/eleventy-img": "^2.0.0",
+    "dotenv": "^16.0.0",
     "eleventy-critical-css": "^1.1.0",
     "eleventy-sass": "^1.1.5"
   }
