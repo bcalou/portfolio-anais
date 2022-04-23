@@ -40,6 +40,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addLiquidShortcode('projectImage', projectImage);
   eleventyConfig.addLiquidShortcode('projectPreview', projectPreview);
+  eleventyConfig.addLiquidShortcode('projectSocial', projectSocial);
   eleventyConfig.addLiquidShortcode('slideshow', slideshow);
 
   return {
@@ -70,6 +71,21 @@ async function projectPreview(item, homePage) {
     sizes: "13.75rem",
     lazy: !homePage
   });
+}
+
+async function projectSocial(item) {
+  if (!prod) return;
+
+  const heroImagePath = `src/img/${item.fileSlug}/1.jpg`;
+  if (!fs.existsSync(heroImagePath)) return;
+
+  const image = await Image(heroImagePath, {
+    widths: [1200],
+    formats: ['jpeg'],
+    outputDir: '_site/img',
+  });
+
+  return image.jpeg[0].url;
 }
 
 async function slideshow(page) {

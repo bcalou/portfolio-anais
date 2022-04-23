@@ -5,7 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="{{pageDescription}}" />
+
+  <!-- Social tags -->
+  <meta property="og:title" content="{{pageTitle}}">
+  <meta property="og:image" content="{% if pageImage %}{{pageImage}}{% else %}/assets/meta.jpg{% endif %}">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Anaïs Lemercier">
+  <meta name="twitter:card" content="summary_large_image">
+
   <title>{{pageTitle}}</title>
+
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/styles.css">
   <link
     rel="preload"
