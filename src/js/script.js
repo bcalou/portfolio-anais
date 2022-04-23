@@ -4,15 +4,23 @@
 
 document.querySelectorAll('.list a').forEach(project => {
   project.addEventListener('mouseover', () => loadAnimation(project));
+  project.addEventListener('mouseleave', () => stopAnimation(project));
   project.addEventListener('focus', () => loadAnimation(project));
 })
 
 function loadAnimation(project) {
-  const gif = project.querySelector('[data-src]');
+  const gif = project.querySelector('.animation');
 
   if (gif) {
     gif.setAttribute('src', gif.getAttribute('data-src'));
-    gif.removeAttribute('data-src');
+  }
+}
+
+function stopAnimation(project) {
+  const gif = project.querySelector('.animation');
+
+  if (gif) {
+    gif.removeAttribute('src');
   }
 }
 

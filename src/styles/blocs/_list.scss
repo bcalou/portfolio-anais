@@ -4,15 +4,11 @@
   gap: 3.125rem;
   margin: 0 auto 4rem;
   padding: 0 3rem;
-  max-width: 87.25rem;
+  max-width: 95rem;
   justify-content: center;
 
   @include medium {
     margin-bottom: 7rem;
-  }
-
-  @media (min-width: 87.25em) {
-    justify-content: start;
   }
 
   a {
