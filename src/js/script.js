@@ -44,37 +44,14 @@ const slideshow = document.querySelector('.slideshow');
 
 if (slideshow) {
   slideshow.classList.add('js');
+  let current;
   const transitionProperty = 'transform 0.5s';
-
-  window.addEventListener('resize', resizeSlideshow);
-  resizeSlideshow();
 
   const slides = slideshow.querySelector('.slideshow__slides');
   slides.prepend(slides.querySelector('picture:last-child').cloneNode(true));
 
-  slides.addEventListener('click', () => setCurrent(current + 1));
-  const length = slides.children.length;
-
   const navButtons = slideshow.querySelectorAll('.slideshow__nav button');
-  navButtons.forEach((button, index) => button.addEventListener('click', () => {
-    setCurrent(index)
-  }));
-
-  let current;
-  setCurrent(0);
-
-  window.requestAnimationFrame(
-    () => slides.style.transition = transitionProperty
-  );
-
-  function resizeSlideshow() {
-    window.requestAnimationFrame(() => {
-      slides.style.width = `${slideshow.clientWidth * length}px`;
-      setPosition();
-    });
-  }
-
-  function setCurrent(index) {
+  const setCurrent = (index) => {
     navButtons[current]?.classList.remove('active');
     current = index;
     setPosition();
@@ -86,11 +63,18 @@ if (slideshow) {
     }
   }
 
-  function setPosition() {
-    slides.style.transform = `translateX(${slideshow.clientWidth * (current + 1) * -1}px)`
+  const resizeSlideshow = () => {
+    window.requestAnimationFrame(() => {
+      slides.style.width = `${slideshow.clientWidth * length}px`;
+      setPosition();
+    });
   }
 
-  function goBackToStart() {
+  const setPosition = () => {
+    slides.style.transform = `translateX(${slideshow.clientWidth * (current + 1) * -1}px)`;
+  }
+
+  const goBackToStart = () => {
     slides.style.transition = "none";
     window.requestAnimationFrame(() => {
       setCurrent(-1);
@@ -100,4 +84,20 @@ if (slideshow) {
       })
     });
   }
+
+  navButtons.forEach((button, index) => button.addEventListener('click', () => {
+    setCurrent(index)
+  }));
+
+  slides.addEventListener('click', () => setCurrent(current + 1));
+  const length = slides.children.length;
+
+  setCurrent(0);
+
+  window.addEventListener('resize', resizeSlideshow);
+  resizeSlideshow();
+
+  window.requestAnimationFrame(
+    () => slides.style.transition = transitionProperty
+  );
 }
