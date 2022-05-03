@@ -21,11 +21,11 @@
     text-decoration: none;
     text-transform: uppercase;
     color: inherit;
-    font-size: .75rem;
     text-align: center;
 
     @include medium {
       text-align: left;
+      font-size: .75rem;
     }
 
     &:focus,

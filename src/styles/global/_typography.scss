@@ -30,3 +30,9 @@ cite, i, em {
 p {
   line-height: 1.5;
 }
+
+sup {
+  line-height: 0;
+  vertical-align: super;
+  font-size: smaller;
+}
