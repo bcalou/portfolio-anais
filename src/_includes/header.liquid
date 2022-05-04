@@ -36,7 +36,9 @@
 <body>
   <header class="header">
     <div class="header__top">
-      {% if page.fileSlug == "" %}<h1>{% endif %}
+      {% if page.fileSlug == "" or page.fileSlug == "contact" or tag %}
+        <h1>
+      {% endif %}
         <a href="/">
           <img
             class="header__logo"
@@ -46,7 +48,9 @@
             height="71"
           >
         </a>
-      {% if page.fileSlug == "" %}</h1>{% endif %}
+      {% if page.fileSlug == "" or page.fileSlug == "contact" or tag %}
+        </h1>
+      {% endif %}
 
       <div aria-hidden class="header__burger">
         <span></span>
