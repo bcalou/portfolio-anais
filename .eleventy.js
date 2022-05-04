@@ -11,9 +11,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
 
   eleventyConfig.addCollection('projects', (collection) =>
-    collection.getFilteredByGlob(`src/projects/*.liquid`).sort((a, b) =>
-      a.data.position - b.data.position
-    )
+    collection.getFilteredByGlob(`src/projects/*.liquid`)
+  );
+
+  eleventyConfig.addFilter('sortByPosition', (projects) =>
+    projects.sort((a, b) => a.data.position - b.data.position)
   );
 
   eleventyConfig.addPlugin(eleventySass, {

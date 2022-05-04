@@ -1,8 +1,8 @@
 <div class="list">
   {% if tag %}
-    {% assign collection = collections[tag] %}
+    {% assign collection = collections[tag] | sortByPosition %}
   {% else %}
-    {% assign collection = collections.projects %}
+    {% assign collection = collections.projects | sortByPosition %}
   {% endif %}
 
   {%- for item in collection -%}
