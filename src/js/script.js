@@ -12,19 +12,21 @@ header.querySelector('.header__burger').addEventListener('click', () => {
 // Hover GIF animation //
 // ******************* //
 
-document.querySelectorAll('.list a').forEach((project) => {
-  project.addEventListener('mouseover', () => startAnimation(project));
-  project.addEventListener('mouseleave', () => stopAnimation(project));
-  project.addEventListener('focus', () => startAnimation(project));
-});
+if (window.matchMedia('(min-width: 41em)').matches) {
+  document.querySelectorAll('.list a').forEach((project) => {
+  
+    project.addEventListener('mouseover', () => startAnimation(project));
+    project.addEventListener('mouseleave', () => stopAnimation(project));
+    project.addEventListener('focus', () => startAnimation(project));
+    project.addEventListener('blur', () => stopAnimation(project));
+  });
+}
 
 function startAnimation(project) {
-  if (window.matchMedia('(min-width: 41em)').matches) {
-    const gif = project.querySelector('.animation');
+  const gif = project.querySelector('.animation');
 
-    if (gif) {
-      gif.setAttribute('src', gif.getAttribute('data-src'));
-    }
+  if (gif) {
+    gif.setAttribute('src', gif.getAttribute('data-src'));
   }
 }
 

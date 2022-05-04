@@ -26,12 +26,12 @@
     @include medium {
       text-align: left;
       font-size: .75rem;
-    }
 
-    &:focus,
-    &:hover {
-      .animation {
-        display: block;
+      &:focus,
+      &:hover {
+        .animation {
+          display: block;
+        }
       }
     }
   }
