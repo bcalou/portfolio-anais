@@ -190,22 +190,12 @@ body {
 
     &:hover,
     &:focus,
-    &[aria-current].header__filter {
-      span {
-        border-color: white;
-
-        @include medium {
-          border-color: black;
-        }
-      }
-    }
-
     &[aria-current] {
       span {
         border-color: white;
 
         @include medium {
-          border-color: transparent;
+          border-color: black;
         }
       }
     }
