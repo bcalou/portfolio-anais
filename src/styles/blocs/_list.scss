@@ -38,6 +38,7 @@
 
   img {
     margin-bottom: 1rem;
+    width: 100%;
 
     @include medium {
       width: var(--projectWidth);

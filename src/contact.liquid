@@ -7,15 +7,25 @@ pageDescription: Curriculum viteæ, contact et réseaux sociaux
 {% include "header" %}
 
 <main class="contact">
-  <h1>Anaïs Lemercier</h1>
 
-  <p lang="en">Freelance graphic designer and illustrator</p>
-  <p lang="en">La Rochelle, Paris.</p>
+  {% contactImage %}
 
+  <p>Graphic designer et illustratrice freelance</p>
   <address>
-    <a href="tel:0682100790">+33 (0)682 10 07 90</a>
-    <a href="mailto:anaislemercier.contact@gmail.com">anaislemercier.contact@gmail.com</p>
-    <a href="/assets/cv_anais_lemercier_2022.pdf">Curriculum vitæ</a>
+    <p>La Rochelle. Paris.</p>
+
+    <p>
+      <a href="tel:0682100790">+33 (0)682 10 07 90</a>
+    </p>
+    <p>
+      <a href="mailto:anaislemercier.contact@gmail.com">anaislemercier.contact@gmail.com</a>
+    </p>
+    <p>
+      <a
+        class="contact__cv"
+        href="/assets/cv_anais_lemercier_2022.pdf"
+      >Curriculum vitæ</a>
+    </p>
 
     <div class="contact__social">
       <a href="https://www.pinterest.fr/alemercier/" title="Page Pinterest">
@@ -30,9 +40,5 @@ pageDescription: Curriculum viteæ, contact et réseaux sociaux
     </div>
   </address>
 </main>
-
-<aside>
-  {% include "list" %}
-</aside>
 
 {% include "footer" %}

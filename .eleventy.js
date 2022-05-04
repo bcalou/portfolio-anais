@@ -42,6 +42,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidShortcode('projectPreview', projectPreview);
   eleventyConfig.addLiquidShortcode('projectSocial', projectSocial);
   eleventyConfig.addLiquidShortcode('slideshow', slideshow);
+  eleventyConfig.addLiquidShortcode('contactImage', contactImage);
 
   return {
     dir: {
@@ -55,7 +56,7 @@ async function projectImage(page, index) {
     path: `src/img/${page.fileSlug}/${index}.jpg`,
     dimensions: [450, 900, 1800],
     lazy: index > 1,
-    sizes: "(max-width: 56.25rem) 100vw, 56.25rem",
+    sizes: "(max-width: 56.25em) 100vw, 56.25rem",
     alt: "",
   });
 }
@@ -68,7 +69,7 @@ async function projectPreview(item, homePage) {
     path: posterPath,
     dimensions: [220, 440],
     alt: "",
-    sizes: "13.75rem",
+    sizes: "(max-width: 41em) 100vw, 13.75rem",
     lazy: !homePage
   });
 }
@@ -102,7 +103,7 @@ async function slideshow(page) {
       path: picture,
       dimensions: [450, 900, 1800],
       alt: "",
-      sizes: "(max-width: 56.25rem) 100vw, 56.25rem"
+      sizes: "(max-width: 56.25em) 100vw, 56.25rem"
     })
   ));
 
@@ -119,6 +120,15 @@ async function slideshow(page) {
       ).join('')}
     </div>
   </div>`
+}
+
+async function contactImage() {
+  return await getPictureTag({
+    path: `src/img/contact.jpg`,
+    dimensions: [350, 700],
+    sizes: "21.875rem",
+    alt: "",
+  });
 }
 
 async function getPictureTag(options) {

@@ -19,7 +19,7 @@ document.querySelectorAll('.list a').forEach(project => {
 })
 
 function startAnimation(project) {
-  if (window.matchMedia("(min-width: 39rem)").matches) {
+  if (window.matchMedia("(min-width: 41em)").matches) {
     const gif = project.querySelector('.animation');
 
     if (gif) {
