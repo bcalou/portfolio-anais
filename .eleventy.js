@@ -118,7 +118,7 @@ async function slideshow(page) {
         `<button
           aria-label="Image ${index + 1} sur ${pictureElements.length}"
           data-slide=${index}
-        >${pictureEl}</button>`
+        ></button>`
       ).join('')}
     </div>
   </div>`

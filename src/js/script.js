@@ -12,14 +12,14 @@ header.querySelector('.header__burger').addEventListener('click', () => {
 // Hover GIF animation //
 // ******************* //
 
-document.querySelectorAll('.list a').forEach(project => {
+document.querySelectorAll('.list a').forEach((project) => {
   project.addEventListener('mouseover', () => startAnimation(project));
   project.addEventListener('mouseleave', () => stopAnimation(project));
   project.addEventListener('focus', () => startAnimation(project));
-})
+});
 
 function startAnimation(project) {
-  if (window.matchMedia("(min-width: 41em)").matches) {
+  if (window.matchMedia('(min-width: 41em)').matches) {
     const gif = project.querySelector('.animation');
 
     if (gif) {
@@ -59,49 +59,56 @@ if (slideshow) {
 
     if (current === length - 1) {
       goToStart();
-    } else if (current === -2) {
-      goToEnd();
     } else {
       navButtons[current]?.classList.add('active');
     }
-  }
+  };
 
   const resizeSlideshow = () => {
     window.requestAnimationFrame(() => {
       slides.style.width = `${slideshow.clientWidth * length}px`;
       setPosition();
     });
-  }
+  };
 
   const setPosition = () => {
-    slides.style.transform = `translateX(${slideshow.clientWidth * (current + 1) * -1}px)`;
-  }
+    slides.style.transform = `translateX(${
+      slideshow.clientWidth * (current + 1) * -1
+    }px)`;
+  };
 
   const goToStart = () => {
-    slides.style.transition = "none";
+    slides.style.transition = 'none';
     window.requestAnimationFrame(() => {
       setCurrent(-1);
       window.requestAnimationFrame(() => {
         slides.style.transition = transitionProperty;
         window.requestAnimationFrame(() => setCurrent(0));
-      })
+      });
     });
-  }
+  };
 
   const goToEnd = () => {
-    slides.style.transition = "none";
-    window.requestAnimationFrame(() => {
-      setCurrent(length - 1);
-      // window.requestAnimationFrame(() => {
-      //   slides.style.transition = transitionProperty;
-      //   window.requestAnimationFrame(() => setCurrent(length));
-      // })
-    });
-  }
+    navButtons[length - 2].classList.add('active');
 
-  navButtons.forEach((button, index) => button.addEventListener('click', () => {
-    setCurrent(index)
-  }));
+    setTimeout(() => {
+      slides.style.transition = 'none';
+      
+      window.requestAnimationFrame(() => {
+        setCurrent(length - 2);
+
+        window.requestAnimationFrame(() => {
+          slides.style.transition = transitionProperty;
+        });
+      });
+    }, 500);
+  };
+
+  navButtons.forEach((button, index) =>
+    button.addEventListener('click', () => {
+      setCurrent(index - 1);
+    }),
+  );
 
   setCurrent(0);
 
@@ -109,7 +116,7 @@ if (slideshow) {
   resizeSlideshow();
 
   window.requestAnimationFrame(
-    () => slides.style.transition = transitionProperty
+    () => (slides.style.transition = transitionProperty),
   );
 
   // Swipe handling
@@ -123,24 +130,38 @@ if (slideshow) {
     const delx = touchendX - touchstartX;
     const dely = touchendY - touchstartY;
 
-    if (Math.abs(delx) > Math.abs(dely)){
-        if (delx > 0) {
+    if (Math.abs(delx) > Math.abs(dely)) {
+      if (delx > 0) {
+        if (current === 0) {
+          setCurrent(current - 1);
+          goToEnd();
+        } else {
           setCurrent(current - 1);
         }
-        else {
-          setCurrent(current + 1);
-        }
+      } else {
+        setCurrent(current + 1);
+      }
     }
-  }
+  };
 
-    slideshow.addEventListener('touchstart', function(event) {
+  slideshow.addEventListener(
+    'touchstart',
+    function (event) {
       touchstartX = event.changedTouches[0].screenX;
       touchstartY = event.changedTouches[0].screenY;
-    }, false);
+    },
+    false,
+  );
 
-    slideshow.addEventListener('touchend', function(event) {
+  slideshow.addEventListener(
+    'touchend',
+    function (event) {
       touchendX = event.changedTouches[0].screenX;
       touchendY = event.changedTouches[0].screenY;
       handleGesture(touchstartX, touchstartY, touchendX, touchendY);
-    }, false);
+    },
+    false,
+  );
+
+  slideshow.addEventListener('click', () => setCurrent(current + 1));
 }
