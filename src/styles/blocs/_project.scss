@@ -31,7 +31,7 @@
   }
 
   p {
-    max-width: 31.25rem;
+    max-width: 34rem;
     padding: 0 2rem;
     margin: 0 auto;
   }
@@ -51,6 +51,10 @@
 
   picture + picture img {
     margin-top: 0.5rem;
+
+    @include medium {
+      margin-top: 0.75rem;
+    }
   }
 
   :not(picture) + picture img {

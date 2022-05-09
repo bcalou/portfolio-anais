@@ -53,13 +53,13 @@ module.exports = function (eleventyConfig) {
   }
 };
 
-async function projectImage(page, index) {
+async function projectImage(page, index, alt) {
   return await getPictureTag({
     path: `src/img/${page.fileSlug}/${index}.jpg`,
     dimensions: [450, 900, 1800],
     lazy: index > 1,
     sizes: "(max-width: 56.25em) 100vw, 56.25rem",
-    alt: "",
+    alt: alt,
   });
 }
 
@@ -91,7 +91,7 @@ async function projectSocial(item) {
   return image.jpeg[0].url;
 }
 
-async function slideshow(page) {
+async function slideshow(page, alt) {
   const pictures = [];
   let index = 1;
 
@@ -104,7 +104,7 @@ async function slideshow(page) {
     await getPictureTag({
       path: picture,
       dimensions: [450, 900, 1800],
-      alt: "",
+      alt: alt,
       sizes: "(max-width: 56.25em) 100vw, 56.25rem"
     })
   ));
