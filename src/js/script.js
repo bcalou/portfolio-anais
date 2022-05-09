@@ -115,11 +115,11 @@ if (slideshow) {
   setCurrent(0);
 
   window.addEventListener('resize', resizeSlideshow);
-  resizeSlideshow();
 
-  window.requestAnimationFrame(
-    () => (slides.style.transition = transitionProperty),
-  );
+  window.requestAnimationFrame(() => {
+    slides.style.transition = transitionProperty;
+    resizeSlideshow();
+  });
 
   // Swipe handling
 
