@@ -8,7 +8,7 @@
   @include medium {
     grid-template-columns: repeat(auto-fit, var(--projectWidth));
     max-width: 95rem;
-    gap: 3.125rem;
+    gap: 3.125rem 3.125rem;
     justify-content: center;
     margin-bottom: 7rem;
   }
