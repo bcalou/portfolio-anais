@@ -39,14 +39,16 @@
     {% assign collection = collections.projects | sortByPosition %}
   {% endif %}
 
-  {%- for item in collection -%}
-    <link
-      rel="preload"
-      href="/img/{{item.fileSlug}}/animation.gif"
-      media="(min-width: 41em)" 
-      as="image"
-    >
-  {% endfor %}
+  {% if page.fileSlug != "contact" %}
+    {%- for item in collection -%}
+      <link
+        rel="preload"
+        href="/img/{{item.fileSlug}}/animation.gif"
+        media="(min-width: 41em)" 
+        as="image"
+      >
+    {% endfor %}
+  {% endif %}
 
   <script src="/js/script.js" defer></script>
 </head>
