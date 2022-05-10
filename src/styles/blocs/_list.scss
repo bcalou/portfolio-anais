@@ -27,10 +27,8 @@
       text-align: left;
       font-size: .75rem;
 
-      &[src] {
-        .animation {
-          display: block;
-        }
+      .animation[src] {
+        display: block;
       }
     }
   }
