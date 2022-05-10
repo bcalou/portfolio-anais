@@ -172,6 +172,11 @@ body {
         top: .0625rem;
       }
     }
+
+    // Don't underline the home link
+    & > :first-child span {
+      border: none;
+    }
   }
 
   a {
