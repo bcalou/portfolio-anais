@@ -14,7 +14,6 @@ header.querySelector('.header__burger').addEventListener('click', () => {
 
 if (window.matchMedia('(min-width: 41em)').matches) {
   document.querySelectorAll('.list a').forEach((project) => {
-  
     project.addEventListener('mouseover', () => startAnimation(project));
     project.addEventListener('mouseleave', () => stopAnimation(project));
     project.addEventListener('focus', () => startAnimation(project));
