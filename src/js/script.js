@@ -151,7 +151,7 @@ if (slideshow) {
       touchstartX = event.changedTouches[0].screenX;
       touchstartY = event.changedTouches[0].screenY;
     },
-    false,
+    { passive: true }
   );
 
   slideshow.addEventListener(
@@ -161,7 +161,7 @@ if (slideshow) {
       touchendY = event.changedTouches[0].screenY;
       handleGesture(touchstartX, touchstartY, touchendX, touchendY);
     },
-    false,
+    { passive: true }
   );
 
   slideshow.addEventListener('click', () => setCurrent(current + 1));
